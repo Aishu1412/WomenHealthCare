@@ -1,0 +1,77 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/locale/af.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <link rel="manifest" href={% static 'App/manifest.json' %}>
+
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+            <!-- Custom Theme files -->
+            <link href={% static 'App/css/style.css' %} rel="stylesheet" type="text/css" media="all" />
+            <!--web-fonts-->
+            <link href='//fonts.googleapis.com/css?family=Jura:400,300,500,600' rel='stylesheet' type='text/css'>
+            <link type="text/css" rel="stylesheet" href={% static 'App/css/jquery.mmenu.all.css' %} />
+            <!--//web-fonts-->
+            <!-- js -->
+            <script src="{% static 'App/js/jquery-1.11.1.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'App/js/jquery.mmenu.min.all.js' %}"></script>
+            <!-- //js -->
+            <!-- chart -->
+            <script src="{% static 'App/js/Chart.js' %}"></script>
+
+
+                <title>Home</title>
+                <!-- Core CSS - Include with every page -->
+                <link href="{% static 'App/css/bootstrap.min.css' %}" rel="stylesheet">
+                <link href="{% static 'App/css/style.css' %}" rel="stylesheet">
+                </head>
+                <body>
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header" style="float:left">
+                            <div class="menu" style="margin-top:16px;margin-left:20px;">
+                                    <span class="menu-icon">
+                                    <a href="#"><img src={% static 'App/images/menu-icon.png' %} alt=""/></a></span>
+                                        <ul class="nav1">
+                                            <li><a href={% url 'home' %}>Home</a></li>
+                                            <li><a href={% url 'home' %}>About</a></li>
+                                            <li><a href={% url 'discuss' %}>Discus</a></li>
+                                            <li><a href={% url 'createDiscuss' %}>Start Discus</a></li>
+                                            <li><a href={% url 'viewQuestions' %}>Questions</a></li>
+                                            <li><a href={% url 'postQuestion' %}>Post Questions</a></li>
+                                            <li><a href={% url 'logout' %}>Logout</a></li>
+                                        </ul>
+                                        <!-- script-for-menu -->
+                                         <script>
+                                           $( "span.menu-icon" ).click(function() {
+                                             $( "ul.nav1" ).slideToggle( 300, function() {
+                                             // Animation complete.
+                                              });
+                                             });
+                                        </script>
+                                        <!-- /script-for-menu -->
+                                </div>
+                            </div>
+                            <div class="pull-right" style=""><a class="navbar-brand" href="#">Nurse</a></div>
+                        </div>
+
+                    </nav>
+
+                 {% block content %}
+                {% endblock %}
+
+
+                    <!-- Core Scripts - Include with every page -->
+                    <script src = "{% static 'App/js/jquery.min.js' %}"></script>
+                    <script src = "{% static 'App/js/bootstrap.min.js' %}"></script>
+        {% block javascript %}
+        {% endblock %}
+
+
+            </body>
+        </html>
